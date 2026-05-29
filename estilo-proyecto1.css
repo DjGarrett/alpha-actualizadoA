@@ -1,0 +1,13 @@
+.info-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.texto-lado{
+    max-width: 400px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+

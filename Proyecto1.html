@@ -1,0 +1,380 @@
+<html>
+	<head>
+		<button id="boton-modo" class="btn-modo">Cambiar a modo oscuro</button>
+		
+
+		<!--Visualizer(incompleto)-->
+		<div class="visualizer">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+
+		
+		<style type="text/css">
+			h1 {
+				text-align: center;
+				color: #ffffff;
+				font-size: 50px;
+			}
+
+			li{transition: 0.3s;
+			
+			}
+			
+			li:hover{
+				color: #33e0ff;
+				transform: translateX(10px);
+			}
+		/*modo oscuro*/
+
+		.btn-modo {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 15px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s;
+                z-index: 1000; /* Asegura que flote por encima de todo */
+            }
+
+            /* Estilos cuando el body tenga la clase 'dark-mode' */
+            body.dark-mode {
+                background-color: #121212 !important;
+                color: #ffffff !important;
+            }
+
+            body.dark-mode h1, 
+            body.dark-mode h2, 
+            body.dark-mode p,
+            body.dark-mode ol,
+            body.dark-mode li {
+                color: #ffffff !important;
+            }
+
+            /* Estilo del botón cuando la página está oscura */
+            body.dark-mode .btn-modo {
+                background-color: #ffffff;
+                color: #121212;
+            }
+		</style>
+		<title>My Tracklist</title>
+
+		<!--Seccion color de Scrollbar-->
+		<style type="text/css">
+		body{
+			background-color: #eee8e8;
+			color: rgb(0, 0, 0);
+			font-family: Arial;
+		}
+		h1{
+			text-align: center;
+			color: #33ffda;
+			font-size: 50px;
+		}
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		::-webkit-scrollbar-thumb
+		{
+			background: #6bcaed;
+			border-radius: 10px;
+		}
+		</style>
+
+		<!--Sombra y animacion de resaltado de la imagen-->
+		<style type="text/css">
+			/* Estilos adicionales */
+
+			img {
+				border-radius: 20px;
+				transition:0.5s;
+			}
+
+			img:hover {
+				transform: scale(1.03);
+				box-shadow: 0px 0px 20px rgba(51, 224, 255, 0.5);
+			}
+
+		</style>
+		<!--Animacion de la barra de visualizacion-->
+		<style type="text/css">
+
+	body{
+		background: #ffffff;
+		color: rgb(0, 0, 0);
+		font-family: Arial;
+	}
+
+	h1{
+		text-align: center;
+		color: rgb(0, 0, 0);
+		font-size: 50px;
+	}
+
+	/* otros estilos */
+
+	.visualizer{
+		display: flex;
+		justify-content: center;
+		align-items: end;
+		height: 100px;
+		gap: 10px;
+		margin: 20px;
+	}
+
+	.visualizer span{
+		width: 15px;
+		height: 40px;
+		background: #5dc3da;
+		border-radius: 10px;
+		animation: bounce 1s infinite ease-in-out;
+	}
+
+	.visualizer span:nth-child(2){
+		animation-delay: 0.2s;
+	}
+
+	.visualizer span:nth-child(3){
+		animation-delay: 0.4s;
+	}
+
+	.visualizer span:nth-child(4){
+		animation-delay: 0.6s;
+	}
+
+	.visualizer span:nth-child(5){
+		animation-delay: 0.8s;
+	}
+
+	@keyframes bounce{
+		0%,100%{
+			height: 40px;
+		}
+
+		50%{
+			height: 100px;
+		}
+	}
+
+</style>
+
+	</head>
+	<body>
+		<h1>My Tracklist</h1>
+		<h2>Mi Top 10 Canciones</h2>
+		<ol>
+			<li>Butterflies - Skrillex, Starrah, Four Tet</li>
+			<li>The Healing - James Zabiela</li>
+			<li>Parallel4 - Four Tet</li>
+			<li>Paroxysm - Camellia</li>
+			<li>Try Again - USAO</li>
+			<li>Blessings (KETTAMA Remix) - Calvin Harris, Clementine Douglas, KETTAMA</li>
+			<li>Strong - Romy, Fred Again..</li>
+			<li>Shelter - Porter Robinson, Madeon</li>
+			<li>Ghost Voices - Virtual Self</li>
+			<li>BADO - Shimza, CamelPhat, Idd Azis</li>
+		</ol>
+	<hr>
+		<h2>Canciones que Recomiendo</h2>
+		<ol>
+			<li>Inner Wars - Andot</li>
+			<li>Joy - Salute</li>
+			<li>Lies - DjRUM</li>
+			<li>Do You Feel Me - NY's Finest</li>
+			<li>Ferrari - James Hype</li>
+		</ol>
+	<hr>	
+		<h2>Disqueras</h2>
+		<ol>
+			<li>OWSLA</li>
+			<li>Toolroom</li>
+			<li>Armada Records</li>
+			<li>Mixmash Records</li>
+			<li>Spinin Records</li>
+			<li>Monstercat</li>
+			<li>Dawn Patrol</li>
+			<li>Disciple</li>
+			<li>NCS</li>
+			<li>Phoenix Music</li>
+			<li>STMPD rcrds</li>
+		</ol>
+	<hr>
+		<h3>100 Canciones</h3>
+		<style type="text/css">
+			h3 {
+				text-align: center;
+				color: #33e0ff;
+				font-size: 30px;
+			}
+		</style>	
+<br>
+		<!-- NOTA:Usar /embed/ dentro del link despues de insertar-->
+		<!--Reproduvtor de Spotify-->
+		<iframe
+			width="100%"
+			height="166"
+			scrolling="no"
+			frameborder="no"
+			allow="autoplay"
+			src="https://open.spotify.com/embed/playlist/0YKcMcNNQa4WG95CTceaKD">
+		</iframe>
+
+	
+		<!-- 100 Canciones de 100 -->
+		<ol>
+			<li>Luv Light - DBN, Oni Sky</li>
+			<li>Blame - James Zabiela</li>
+			<li>Skater - Four Tet</li>
+			<li>Seashore on the moon - Camellia, Nanahira</li>
+			<li>Trust (Plastik Funk Remix) - Tank & Cheetah, DBN, The Rise</li>
+			<li>Picket Lines - Bonetti</li>
+			<li>Better - Mija, Vindata</li>
+			<li>Selecta - Skrillex, BEAM</li>
+			<li>Trip - Boys Noize, Skream</li>
+			<li>HOT DRUM - JOYRIDE</li>
+			<li>Crazy - Pink Panda</li>
+			<li>Wait For It - Salute</li>
+			<li>Spectrum - Zedd, Matthew Koma</li>
+			<li>Silhouettes - Avicii</li>
+			<li>Waves - BLOND:ISH, Grace Tither</li>
+			<li>Flames (Tepr Remix) - David Guetta, Sia, Tepr</li>
+			<li>Happy Accidents - Outwild, Inukshuk</li>
+			<li>Dust To Gold - Pyrodox, Ina</li>
+			<li>Holding On - Disclosure, Gregory Porter</li>
+			<li>Stargazing - Just A Gent,CARLIE, Kiss the Moon, Stutters</li>
+			<li>Mazy Metroplex - aran</li>
+			<li>Stay Different - Minders, Santiago Luna, Carlos Luna</li>
+			<li>Something Comforting - Porter Robinson</li>
+			<li>Problems - Floating Points</li>
+			<li>Music - underscores</li>
+			<li>Flashback - ARForest</li>
+			<li>Shizuku - Yamato, Maydenfield</li>
+			<li>Reaction (Osu Edit) - James Landino, Slyleaf</li>
+			<li>Squall - Srav3R</li>
+			<li>Compromise - Nico de Amdrea, hazel</li>
+			<li> I Love You So - Andrea Oliva, Moeaike</li>
+			<li>Midnight In Peckham - Chaos In The CBD, Issac Aesili</li>
+			<li>Hello to the your first video game - Camellia</li>
+			<li>Hold Me - Orjan Nilsen</li>
+			<li>Summer 91 (Looking Back) - Noizu</li>
+			<li>High - HRRTZ, S.MICHAUD</li>
+			<li>Feelings - farfetch'd, Tobtok</li>
+			<li>Flamingo Tripper - Edmondson</li>
+			<li>After Dawn - Letherette</li>
+			<li>Disconap - Andy Bianchini, Rivas(BR)</li>
+			<li>Your Body - Illyus Barrientos, Daniel De Bourg</li>
+			<li>Fly - KC Lights, Welt</li>
+			<li>adore u - Fred again.., Obongjayar</li>
+			<li>Feel The Friction - Sam Alfred</li>
+			<li>Electricity (Salute Remix) - Hikaru Utada, Salute</li>
+			<li>Gunk - Overmono</li>
+			<li>TAKA - Ahadadream, Priya Ragu, Skrillex</li>
+			<li>Moving On - Alix Perez, Liam Bailey</li>
+			<li>New Love - Ruth Royal, Makoto</li>
+			<li>Lost in the mist - aran, Tia</li>
+			<li>Easy - Mat Zo, Porter Robinson</li>
+			<li>Back to Pangea pt.II Jazzapella Version - Freddy da Stupid</li>
+			<li>Show Me Love - Laidback Luke, Steve Angello, Robin S</li>
+			<li>Afraid - Aevion</li>
+			<li>Douha (Mali Mali) - Disclosure, Fatoumata Diawara</li>
+			<li>My World - Disco Fries, Dee Roze</li>
+			<li>Forever And A Day (Diplo Remix) - LP Giobbi, Caroline Byrne, Diplo</li>
+			<li>Say My Name - ARTY</li>
+			<li>No Fear No More - Madeon, EARTHGANG</li>
+			<li>Like Fire - Madison Mars, Nevve</li>
+			<li>Just Doin'Me - MOONBOY, Z3LLA</li>
+			<li>17 - MK</li>
+			<li>Burn Dem Bridges - Skin On Skin</li>
+			<li>Full On (KILIMANJARO Remix) - Hak Baker, KILIMANJARO</li>
+			<li>MAGNET - Gryffin, Disco Lines, MAX</li>
+			<li>JOY (How We End Up Here) - Joy Anonymous</li>
+			<li>Waves (Vocal Mix) - Kryder, Erick Morillo, Bella Hunter</li>
+			<li>In My Dreams - Four Tet, Ellie Goulding</li>
+			<li>Baby Slow Down - Ferreck Dawn, Franky Rizardo, Torica</li>
+			<li>PARANOIA - Borgore</li>
+			<li>You Thought - Mall Grab</li>
+			<li>La Festa - KO3, aran</li>
+			<li>HIGHER - REDALiCE</li>
+			<li>With You - Virtual Riot</li>
+			<li>Supersonic - Rob Gasser</li>
+			<li>Invisible (R!OT Remix) - Christine Grimmie. R!OT</li>
+			<li>Missing (Todd Terry Club Mix) - Everything But The Girl, Todd Terry</li>
+			<li>Neverender (Rampa Remix) - Justice, Tame Impala, Rampa, Keinemusik</li>
+			<li>Waited All Night (Solomun Remix v11) - Jamie xx, Solomun, Romy, Oliver Sim</li>
+			<li>Alone - MPH, Carla Monroe</li>
+			<li>London To Buenos Aires - Paul Oakenfold, Hernan Cattaneo</li>
+			<li>Optimism - Dosem</li>
+			<li>Mama Africa - llan Bluestone, El Waves</li>
+			<li>Lucifero - Wata Igarashi</li>
+			<li>Szikra - Kornel Kovacs</li>
+			<li>Skyline (Madraas Edit Remix) - HUNZED, Madraas</li>
+			<li>Delete - Ninajirachi</li>
+			<li>Ella - Aldonna</li>
+			<li>Falling van Buuren - TRANCEMAN2000</li>
+			<li>Kiki - Crusy</li>
+			<li>Holding Back - Azzecca</li>
+			<li>Feel My Needs - WEISS</li>
+			<li>Why Dont't We Go Somewhere - Friend Within</li>
+			<li>Stay (Don't Go Away) - David Guetta, RAYE</li>
+			<li>Black Ice - Subtronics, Rezz</li>
+			<li>Shades Of Gray - Oliver Heldens, Shaun Frank, Delaney Jane</li>
+			<li>Quintal - Mlive, Gogoia, Morgado, Gabriela Paes</li>
+			<li>Midi Night Metropolitan Highway Zwei - Takahiro Aoki, Invasion Of Chaos, ANKI</li>
+			<li>Fly Away XTC - KETTAMA</li>
+			<li>Newspapers for Magicans - Camellia</li>
+		</ol>
+
+		<!--Texto abajo de imagen "info-container" y div-->
+		<div class="info-container">
+
+    <a href="https://open.spotify.com/playlist/0YKcMcNNQa4WG95CTceaKD" target="_blank">
+        <img src="imagenes_proyecto/Pixiv1.jpg" width="900px" height="500px">
+    </a>
+
+    <div class="texto-lado">
+        <h2>My Playlist</h2>
+
+        <p>
+            Esta playlist contiene algunas de mis canciones favoritas
+            de EDM, House, Dubstep, Drum & Bass y Trance.
+        </p>
+
+        <p>
+            Artistas destacados:
+            Skrillex, Porter Robinson, Fred again..,
+            Camellia, Four Tet y muchos más.
+        </p>
+
+        <p>
+            Géneros:
+            Future Bass, Tech House, Progressive House,
+            UK Garage, Hard Dance y Electronic.
+        </p>
+    </div>
+
+</div>
+		 <br>
+
+		 <h2>αlpha</h2>
+		<p>en <a href="index.html">Alpha</a> se muestran todas las canciones que aun no han sido lanzadas o son difíciles de encontrar</p>
+
+
+
+
+		<br>
+
+	<br>
+		<script src="script.js">
+			alert("Bienvenido a My Tracklist");
+		</script>
+	</body>
+</html>

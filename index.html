@@ -1,0 +1,80 @@
+<html5>
+<head>
+   <button id="boton-modo" class="btn-modo">Cambiar a modo oscuro</button>
+		
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>αlpha</title>
+</head>
+<body>
+    <h1>αlpha</h1>
+    <style type="text/css">
+       h1{
+        text-align: center;
+        color: rgb(243, 131, 219);
+        font-size: 50px;
+
+        }
+    /*modo oscuro*/
+        .btn-modo {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 15px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s;
+                z-index: 1000; /* Asegura que flote por encima de todo */
+            }
+
+            /* Estilos cuando el body tenga la clase 'dark-mode' */
+            body.dark-mode {
+                background-color: #121212 !important;
+                color: #ffffff !important;
+            }
+
+            body.dark-mode h1, 
+            body.dark-mode h2, 
+            body.dark-mode p,
+            body.dark-mode ol,
+            body.dark-mode li {
+                color: #ffffff !important;
+            }
+
+            /* Estilo del botón cuando la página está oscura */
+            body.dark-mode .btn-modo {
+                background-color: #ffffff;
+                color: #121212;
+            }
+    </style>
+
+
+<br>
+
+    <p>Porter Robinson - music Vs Trip333</p>
+<!--reproductor de audio-->
+    <audio controls>
+        <source src="musica/porter robinson-music_Vs_Trip333.mp3" type="audio/mp3">
+         Your browser does not support the audio element.
+
+    </audio>
+   <br></br>
+
+<p>Four Tet - Human Voice</p>
+   <audio controls>
+    <source src="musica/Four_Tet-Human Voice.mp3" type="audio/mp3">
+  </audio>
+<br></br>
+
+    <a href="Proyecto1.html">Regresar a My Tracklist</a>
+
+<script src="script.js"></script>
+
+
+</body>
+</html5>
