@@ -1,0 +1,88 @@
+/* Contenedor de la lista para romper el centrado general */
+.lista-canciones-box {
+    width: 100%;
+    max-width: 450px; /* Limita el ancho para que no se esparza por toda la pantalla */
+    margin-top: 30px;
+    text-align: left; /* Alinea el título de la lista a la izquierda */
+}
+
+.lista-canciones-box h3 {
+    color: rgb(243, 131, 219);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Estructura de la lista limpia y desmarcada */
+.lista-animada {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Diseño de cada elemento de la lista y Animación de Entrada */
+.lista-animada li {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: rgba(243, 131, 219, 0.05); /* Un fondo sutil */
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+    
+    /* Transición suave para el hover */
+    transition: all 0.3s ease;
+    
+    /* Animación de entrada al cargar la página */
+    animation: aparecerLista 0.6s ease forwards;
+    opacity: 0; /* Empieza invisible y la animación la muestra */
+}
+
+/* Animación sutil al pasar el mouse por encima (Hover) */
+.lista-animada li:hover {
+    background-color: rgba(243, 131, 219, 0.15);
+    border-left-color: rgb(243, 131, 219); /* Resalta el borde izquierdo */
+    transform: translateX(8px); /* Se mueve un poco a la derecha */
+}
+
+/* Estilos para los números y títulos */
+.lista-animada .numero {
+    font-weight: bold;
+    color: rgb(243, 131, 219);
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.lista-animada .titulo {
+    font-size: 15px;
+    color: #333;
+}
+
+/* Adaptación automática de la tipografía en Modo Oscuro */
+body.dark-mode .lista-animada .titulo {
+    color: #ffffff !important;
+}
+body.dark-mode .lista-animada li {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .lista-animada li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* KEYFRAMES: Efecto de aparición desde abajo hacia arriba */
+@keyframes aparecerLista {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto escalonado opcional (Stagger effect): Cada elemento tarda un poquito más en aparecer que el anterior */
+.lista-animada li:nth-child(1) { animation-delay: 0.1s; }
+.lista-animada li:nth-child(2) { animation-delay: 0.2s; }
+.lista-animada li:nth-child(3) { animation-delay: 0.3s; }
+.lista-animada li:nth-child(4) { animation-delay: 0.4s; }
