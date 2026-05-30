@@ -1,80 +1,156 @@
-<html5>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-   <button id="boton-modo" class="btn-modo">Cambiar a modo oscuro</button>
-		
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>αlpha</title>
+    
+    <style type="text/css">
+        /* Configuración global y centrado */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra horizontalmente todo el contenido */
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(243, 131, 219);
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor multimedia para agrupar música e imagen */
+        .contenido-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espaciado uniforme entre elementos (reemplaza los <br>) */
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .track {
+            text-align: center;
+            width: 100%;
+        }
+
+        .track p {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        audio {
+            width: 100%; /* El reproductor se adapta al contenedor */
+            max-width: 400px;
+        }
+
+        /* Ajustes de la Imagen Centrada y Más Grande */
+        .contenedor-imagen {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 500px; /* Tamaño máximo más grande */
+            width: 100%;      /* Hace que sea responsiva en pantallas chicas */
+            height: auto;     /* Mantiene la proporción de la imagen sin deformarla */
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        img:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 0px 20px rgba(226, 37, 147, 0.5);
+        }
+
+        /* Enlace inferior */
+        .link-tracklist {
+            margin-top: 15px;
+            text-decoration: none;
+            color: rgb(243, 131, 219);
+            font-weight: bold;
+        }
+
+        /* Botón de modo oscuro floating */
+        .btn-modo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        /* Estilos Modo Oscuro */
+        body.dark-mode {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode p,
+        body.dark-mode ol,
+        body.dark-mode li,
+        body.dark-mode .link-tracklist {
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .btn-modo {
+            background-color: #ffffff;
+            color: #121212;
+        }
+    </style>
 </head>
 <body>
+
+    <button id="boton-modo" class="btn-modo">Modo Oscuro</button>
+
     <h1>αlpha</h1>
-    <style type="text/css">
-       h1{
-        text-align: center;
-        color: rgb(243, 131, 219);
-        font-size: 50px;
 
-        }
-    /*modo oscuro*/
-        .btn-modo {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 10px 15px;
-                background-color: #333;
-                color: #fff;
-                border: none;
-                border-radius: 20px;
-                cursor: pointer;
-                font-weight: bold;
-                transition: 0.3s;
-                z-index: 1000; /* Asegura que flote por encima de todo */
-            }
+    <div class="contenido-container">
+        
+        <div class="track">
+            <p>Porter Robinson - music Vs Trip333</p>
+            <audio controls>
+                <source src="musica/porter robinson-music_Vs_Trip333.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
-            /* Estilos cuando el body tenga la clase 'dark-mode' */
-            body.dark-mode {
-                background-color: #121212 !important;
-                color: #ffffff !important;
-            }
+        <div class="track">
+            <p>Four Tet - Human Voice</p>
+            <audio controls>
+                <source src="musica/Four_Tet-Human Voice.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
-            body.dark-mode h1, 
-            body.dark-mode h2, 
-            body.dark-mode p,
-            body.dark-mode ol,
-            body.dark-mode li {
-                color: #ffffff !important;
-            }
+        <div class="contenedor-imagen">
+            <a href="https://open.spotify.com/playlist/2MUqraSrM1BAaL6e2HgdDQ?si=UIKpCEn9TQek_80jIk-8TQ" target="_blank">
+                <img src="imagenes_proyecto/Pixiv2.jpg" alt="Imagen 1">
+            </a>
+        </div>
 
-            /* Estilo del botón cuando la página está oscura */
-            body.dark-mode .btn-modo {
-                background-color: #ffffff;
-                color: #121212;
-            }
-    </style>
+        <a href="Proyecto1.html" class="link-tracklist">My Tracklist</a>
+        
+    </div>
 
-
-<br>
-
-    <p>Porter Robinson - music Vs Trip333</p>
-<!--reproductor de audio-->
-    <audio controls>
-        <source src="musica/porter robinson-music_Vs_Trip333.mp3" type="audio/mp3">
-         Your browser does not support the audio element.
-
-    </audio>
-   <br></br>
-
-<p>Four Tet - Human Voice</p>
-   <audio controls>
-    <source src="musica/Four_Tet-Human Voice.mp3" type="audio/mp3">
-  </audio>
-<br></br>
-
-    <a href="Proyecto1.html">My Tracklist</a>
-
-<script src="script.js"></script>
-
-
+    <script src="script.js"></script>
 </body>
-</html5>
+</html>
