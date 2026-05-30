@@ -198,6 +198,47 @@ body.dark-mode .lista-animada li:hover {
         transform: translateY(0);
     }
 }
+.contenido-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Un poco más de aire entre secciones */
+    max-width: 520px; /* El tamaño ideal para que las líneas de texto no cansen la vista */
+    width: 100%;
+}
+
+/* 2. Ajustamos los títulos largos dentro de la lista animada */
+.lista-animada .titulo {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    word-break: break-word; /* Si el nombre es absurdamente largo, se corta de forma limpia */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Máximo 2 líneas por canción si el nombre es kilométrico */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 3. Renovamos el párrafo de IDM por completo */
+.info-genero {
+    width: 100%;
+    text-align: justify;       /* Justifica el texto para bordes perfectos */
+    line-height: 1.7;          /* Dale más aire entre renglones (fundamental para la lectura) */
+    font-size: 14.5px;
+    color: #4a4a4a;            /* Un gris oscuro elegante, menos agresivo que el negro puro */
+    background-color: rgba(243, 131, 219, 0.03); /* Fondo sutil que combina con tu estética */
+    padding: 20px;             /* Espacio interno para que respire el texto */
+    border-radius: 15px;       /* Bordes redondeados a juego con tu interfaz */
+    border-left: 3px solid rgba(243, 131, 219, 0.3); /* Un detalle rosa minimalista a la izquierda */
+    box-sizing: border-box;
+}
+
+/* 4. Asegurar que el párrafo cambie correctamente en Modo Oscuro */
+body.dark-mode .info-genero {
+    color: #dddddd !important;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left-color: rgba(255, 255, 255, 0.2);
+}
 
 /* Efecto escalonado opcional (Stagger effect): Cada elemento tarda un poquito más en aparecer que el anterior */
 .lista-animada li:nth-child(1) { animation-delay: 0.1s; }
@@ -273,6 +314,29 @@ body.dark-mode .lista-animada li:hover {
         </li>
     </ul>
 </div>
+<br>
+<br>
+<div>
+    <p class="info-genero"><b>Intelligent dance music</b> (IDM; en inglés: "música inteligente de baile") es un género de música electrónica que surgió a principios de los años 1990. Su creación estuvo influenciada por los avances de la música dance underground, tales como el Detroit techno y varios estilos breakbeat que estaban emergiendo en el Reino Unido en esa época. Estilísticamente, IDM tendía a basarse en la experimentación individualista, en lugar de adherirse a características musicales asociadas a géneros específicos de la música de baile. La gama de estilos post-techno que emergieron a principios de la década de 1990 fueron descritos de maneras diversas, como "art techno", "ambient techno", "intelligent techno", y "electronica". En los Estados Unidos, este último se utiliza a menudo como un término general para describir no solo a la música electrónica downtempo o no bailable, sino también la música electrónica de baile (EDM).
+    
+    </p>
+</div>
+<br>
+<h1>Historia</h1>
+<br>
+<div class="contenedor-imagen">
+<p class="info-genero">En la época en que el fenómeno rave se desarrollaba en Inglaterra, un número de productores musicales de esa escena comenzaron a explorar el campo de la experimentación sonora. Muy influidos por el primer techno, especialmente su vertiente más onírica o reposada, y al mismo tiempo por el ambient, comenzaron a desarrollar un tipo de techno que no estaba destinado para la pista de baile sino para escuchar fuera del club.
+    <br>
+    
+       
+    <a href="imagenes_proyecto/Pixiv3.jpg" target="_blank">
+        <img src="imagenes_proyecto/Pixiv3.jpg" alt="Imagen 3" style="width: 400px; max-width: 700px;">
+    </a>
+    <br>
+    Se cree que el término "IDM" se formó en Estados Unidos en 1993 a partir de la creación de la IDM list,[4] una lista de correo que nació con el objetivo de comentar y discutir sobre un grupo de artistas de techno inglés que estaban surgiendo en la época. Especialmente todos aquellos asociados al sello discográfico Warp Records y a la serie de recopilatorios y discos Artificial Intelligence. El nombre puede rastrearse en grupos de discusión de Internet hasta 1991.[5] Antes de la adopción del término eran comunes otros nombres como "braindance" (preferido por el sello Rephlex Records), "electronic listening music", "listening techno", "art techno" y "experimental techno".
+</p>
+</div>
+
 
     <script src="script.js"></script>
 </body>
