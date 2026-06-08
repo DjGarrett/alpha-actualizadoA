@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>como instalar droicam por Garrett</title>
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 20px;
+            /* Evitamos que aparezcan barras de scroll si la animación sale un poco de la pantalla */
+            overflow-x: hidden; 
+        }
+        h1 {
+            color: #007BFF;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        hr {
+            margin: 20px 0;
+        }
+
+        /* --- ESTILOS DE LA ANIMACIÓN DEL CURSOR --- */
+        .cursor-animado {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0, 123, 255, 0.6); /* Azul como tu H1, pero con transparencia */
+            border-radius: 50%; /* Lo hace un círculo */
+            position: fixed; /* Se posiciona respecto a la pantalla */
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Hace que el cursor ignore el círculo y puedas hacer click en los textos */
+            transform: translate(-50%, -50%); /* Centra el círculo exactamente en la punta del mouse */
+            /* Transición suave para el efecto de persecución */
+            transition: transform 0.1s ease-out, top 0.05s ease-out, left 0.05s ease-out;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Efecto de brillo */
+            z-index: 9999; /* Asegura que esté por encima de todo */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-animado" id="cursor"></div>
+
+    <h1>como instalar droicam por Garrett</h1>
+    <p>1. Descargar el programa de la pagina oficial</p>
+    <p>2. Instalar el programa en tu computadora</p>
+    <p>3. Descargar la aplicacion en tu celular</p>
+    <p>4. Conectar tu celular a tu computadora mediante un cable USB</p>
+    <p>5. Abrir el programa en tu computadora y seguir las instrucciones para conectar tu celular</p>
+    <p>6. Disfrutar de tu camara web mejorada con droicam</p>
+    <br>
+    <p>cuantos ingenieros se necesitan para instalar droicam?</p>
+    <hr>
+    <p>ninguno, es facil de instalar</p>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+
+        // Escuchamos el movimiento del mouse en toda la ventana
+        window.addEventListener('mousemove', (e) => {
+            // Asignamos las coordenadas X e Y del mouse a las propiedades top y left del div
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>
