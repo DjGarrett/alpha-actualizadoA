@@ -218,6 +218,32 @@
             background: #6bcaed;
             border-radius: 10px;
         }
+        /*--Diseño de la tabla de eventos--*/
+        .tabla-eventos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-eventos th, .tabla-eventos td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-eventos th {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.tabla-eventos tr:hover {
+    background-color: rgba(51, 224, 255, 0.1);
+}
     </style>
 </head>
 <body>
@@ -408,5 +434,34 @@
         <p>En <a href="index.html">Alpha</a> se muestran todas las canciones que aún no han sido lanzadas o son difíciles de encontrar.</p>
 
     </div> <script src="script.js"></script>
+    <br>
+    <h2 style="margin-top: 40px;">Eventos y Presentaciones de DJs</h2>
+<table class="tabla-eventos">
+    <thead>
+        <tr>
+            <th>DJ</th>
+            <th>Evento</th>
+            <th>Line up</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Solomun</td>
+            <td>Solomun</td>
+            <td>Solomun, BLOND:ISH, Cabizbajo</td>
+            <td>Parque Fundidora, Monterrey, NL</td>
+            <td>2025-02-22</td>
+        </tr>
+        <tr>
+            <td>Porter Robinson</td>
+            <td>Latin America Dj Sets Minitour</td>
+            <td>Porter Robinson</td>
+            <td>Showcenter Complex, San Pedro, NL</td>
+            <td>2028-05-08</td>
+        </tr>
+        </tbody>
+</table>
 </body>
 </html>
