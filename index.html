@@ -334,6 +334,32 @@ body.dark-mode .info-genero {
         width: 100%;
     }
 }
+/*tabla de eventos adaptada */
+    .tabla-eventos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-eventos th, .tabla-eventos td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-eventos th {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.tabla-eventos tr:hover {
+    background-color: rgba(255, 51, 245, 0.178);
+}
 
 /* Efecto escalonado opcional (Stagger effect): Cada elemento tarda un poquito más en aparecer que el anterior */
 .lista-animada li:nth-child(1) { animation-delay: 0.1s; }
@@ -557,6 +583,77 @@ body.dark-mode .info-genero {
         </div>
     </div>
 </section>
+<br>
+    <h2>¿Qué es un ID?</h2>
+        <p class="info-genero">En la música electrónica, un ID (abreviatura de Identification) es una canción o pista musical cuyo nombre, autor o ambos aún no se han revelado. Es un término muy común en los sets en vivo, festivales y transmisiones (como las de Tomorrowland o Boiler Room) cuando un DJ pincha una canción nueva y misteriosa.
+            <br>
+            El uso de la palabra proviene de la cultura radial y de los DJs, quienes marcaban los discos de vinilo de acetato que aún no tenían etiqueta oficial con la palabra "ID" (identificación pendiente) hasta que el sello discográfico publicara los datos reales.
+            <br>
+        </p>
+    <h2>¿En qué situaciones se usa un ID?</h2>
+        <p class="info-genero"><strong>Canciones inéditas (Unreleased):</strong> Los DJs y productores utilizan IDs para referirse a sus propios temas nuevos que aún no están terminados o que aún no tienen fecha de lanzamiento oficial.
+        <br>
+            <strong>Prueba de reacción (Testing):</strong> Los artistas tocan canciones sin título en grandes festivales simplemente para evaluar cómo reacciona el público antes de decidir si lanzarlas o descartarlas.
+        <br>
+        <strong>Misterio o colaboraciones:</strong> A veces es una estrategia para crear misterio, expectativa o para ocultar el nombre de una colaboración secreta que aún no está firmada con ninguna disquera.
+        </p>
+        <br>
+        <table class="tabla-eventos">
+    <thead>
+        <tr>
+            <th>DJ</th>
+            <th>IDs</th>
+            <th>Fecha</th>
+            <th>Colaboradores</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Skrillex</td>
+            <td>Sun Up</td>
+            <td>26 de Julio del 2023</td>
+            <td>Vigro Deep, Sarz, Virtual Riot, Burna Boy</td>
+        </tr>
+        <tr>
+            <td>Ninajirachi</td>
+            <td>WannaCry</td>
+            <td>11 de Abril del 2026</td>
+            <td>Porter Robinson</td>
+        </tr>
+        <tr>
+            <td>Four Tet</td>
+            <td>Human Voice</td>
+            <td>12 de Septiembre del 2025</td>
+            <td>Skrillex, Fred again..</td>
+        </tr>
+        <tr>
+            <td>KAYTRANADA</td>
+            <td>Intimidated (Salute Edit)</td>
+            <td>16 de Abril del 2022</td>
+            <td>Salute</td>
+        </tr>
+        <tr>
+            <td>Fred again..</td>
+            <td>Bipolar</td>
+            <td>11 de Octubre del 2024</td>
+            <td>Skrillex, Central Cee</td>
+        </tr>
+        <tr>
+            <td>MPH</td>
+            <td>Long Goodbye</td>
+            <td>26 de Mayo del 2026</td>
+            <td>Nathan Nicholson</td>
+        </tr>
+        <tr>
+            <td>Skrillex</td>
+            <td>Bunga</td>
+            <td>26 de Mayo del 2026</td>
+            <td>MPH</td>
+        </tr>
+    </tbody>
+</table>
+
+    
 
     <script src="script.js"></script>
 </body>
