@@ -6,33 +6,55 @@
     <title>αlpha</title>
     
     <style type="text/css">
-        /* Configuración global y centrado */
+        /*Variables del modo oscuro*/
+        :root {
+            --bg-color: #f5f6fa;
+            --text-color: #2f3542;
+            --card-bg: #ffffff;
+            --border-color: #e4e7eb;
+            --accent-color: #f383db;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        /*variables al activar el modo oscuro*/
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        /*Estilos generales de la pagina*/
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centra horizontalmente todo el contenido */
-            justify-content: flex-start;
-            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: sans-serif;
+            transition: background-color 0.3s, color 0.3s;
             margin: 0;
             padding: 40px 20px;
-            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
             box-sizing: border-box;
         }
-
+        /*titulos*/
         h1 {
             text-align: center;
-            color: rgb(243, 131, 219);
+            color: var(--accent-color);
             font-size: 50px;
             margin-bottom: 30px;
         }
 
-        /* Contenedor multimedia para agrupar música e imagen */
+        h2 {
+            color: var(--text-color);
+        }
+        /*Contenedor Multimedia Principal*/
         .contenido-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; /* Espaciado uniforme entre elementos (reemplaza los <br>) */
-            max-width: 600px;
+            gap: 30px;
+            max-width: 520px;
             width: 100%;
         }
 
@@ -47,11 +69,10 @@
         }
 
         audio {
-            width: 100%; /* El reproductor se adapta al contenedor */
+            width: 100%;
             max-width: 400px;
         }
-
-        /* Ajustes de la Imagen Centrada y Más Grande */
+        /*imagenes y efectos hover*/
         .contenedor-imagen {
             display: flex;
             justify-content: center;
@@ -60,9 +81,9 @@
         }
 
         img {
-            max-width: 500px; /* Tamaño máximo más grande */
-            width: 100%;      /* Hace que sea responsiva en pantallas chicas */
-            height: auto;     /* Mantiene la proporción de la imagen sin deformarla */
+            max-width: 500px;
+            width: 100%;
+            height: auto;
             border-radius: 20px;
             transition: 0.5s;
         }
@@ -71,16 +92,14 @@
             transform: scale(1.03);
             box-shadow: 0px 0px 20px rgba(226, 37, 147, 0.5);
         }
-
-        /* Enlace inferior */
+        /*enlaces y boton modo oscuro*/
         .link-tracklist {
             margin-top: 15px;
             text-decoration: none;
-            color: rgb(243, 131, 219);
+            color: var(--accent-color);
             font-weight: bold;
         }
 
-        /* Botón de modo oscuro floating */
         .btn-modo {
             position: fixed;
             top: 20px;
@@ -96,292 +115,192 @@
             z-index: 1000;
         }
 
-        /* Estilos Modo Oscuro */
-        body.dark-mode {
-            background-color: #121212 !important;
-            color: #ffffff !important;
-        }
-
-        body.dark-mode h1, 
-        body.dark-mode h2, 
-        body.dark-mode p,
-        body.dark-mode ol,
-        body.dark-mode li,
-        body.dark-mode .link-tracklist {
-            color: #ffffff !important;
-        }
-
         body.dark-mode .btn-modo {
             background-color: #ffffff;
             color: #121212;
         }
-       :root {
-    /* Variables Modo Claro */
-    --bg-color: #f5f6fa;
-    --text-color: #2f3542;
-    --card-bg: #ffffff;
-    --border-color: #e4e7eb;
-    --accent-color: #f383db;
-    --shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
+        /*tarjetas*/
+        .card-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: var(--shadow);
+            box-sizing: border-box;
+        }
 
-body.dark-mode {
-    /* Variables Modo Oscuro */
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --card-bg: #1e1e1e;
-    --border-color: #333333;
-    --shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+        .card-content {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+        }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .card-content img {
+            width: 35%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
 
-/* Diseño de Tarjetas (Cards) */
-.card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 25px;
-    margin: 20px 0;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
+        .card-text {
+            flex: 1;
+        }
+        /*responsive moviles*/
+        @media (max-width: 768px) {
+            .card-content {
+                flex-direction: column;
+            }
+            .card-content img {
+                width: 100%;
+            }
+        }
+        /*lista animada de canciones*/
+        .lista-canciones-box {
+            width: 100%;
+            max-width: 450px;
+            margin-top: 30px;
+            text-align: left;
+        }
 
-/* Ajuste para imagen dentro de card */
-.card img {
-    width: 35%;
-    border-radius: 15px;
-    object-fit: cover;
-}
+        .lista-canciones-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
 
-/* Responsividad para móviles */
-@media (max-width: 768px) {
-    .card { flex-direction: column; }
-    .card img { width: 100%; }
-}
+        .lista-animada {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-        /* Contenedor de la lista para romper el centrado general */
-.lista-canciones-box {
-    width: 100%;
-    max-width: 450px; /* Limita el ancho para que no se esparza por toda la pantalla */
-    margin-top: 30px;
-    text-align: left; /* Alinea el título de la lista a la izquierda */
-}
+        .lista-animada li {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: rgba(243, 131, 219, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: aparecerLista 0.6s ease forwards;
+            opacity: 0;
+        }
 
-.lista-canciones-box h3 {
-    color: rgb(243, 131, 219);
-    margin-bottom: 15px;
-    font-size: 20px;
-}
+        body.dark-mode .lista-animada li {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
 
-/* Estructura de la lista limpia y desmarcada */
-.lista-animada {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .lista-animada li:hover {
+            background-color: rgba(243, 131, 219, 0.15);
+            border-left-color: var(--accent-color);
+            transform: translateX(8px);
+        }
 
-/* Diseño de cada elemento de la lista y Animación de Entrada */
-.lista-animada li {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    background-color: rgba(243, 131, 219, 0.05); /* Un fondo sutil */
-    border-radius: 10px;
-    border-left: 4px solid transparent;
-    cursor: pointer;
-    
-    /* Transición suave para el hover */
-    transition: all 0.3s ease;
-    
-    /* Animación de entrada al cargar la página */
-    animation: aparecerLista 0.6s ease forwards;
-    opacity: 0; /* Empieza invisible y la animación la muestra */
-}
+        body.dark-mode .lista-animada li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-/* Animación sutil al pasar el mouse por encima (Hover) */
-.lista-animada li:hover {
-    background-color: rgba(243, 131, 219, 0.15);
-    border-left-color: rgb(243, 131, 219); /* Resalta el borde izquierdo */
-    transform: translateX(8px); /* Se mueve un poco a la derecha */
-}
+        .lista-animada .numero {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 14px;
+        }
 
-/* Estilos para los números y títulos */
-.lista-animada .numero {
-    font-weight: bold;
-    color: rgb(243, 131, 219);
-    margin-right: 15px;
-    font-size: 14px;
-}
+        .lista-animada .titulo {
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 1.4;
+            word-break: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        /*cajas de informacion*/
+        .info-genero {
+            width: 100%;
+            max-width: 800px;
+            text-align: justify;
+            line-height: 1.7;
+            font-size: 14.5px;
+            background-color: rgba(243, 131, 219, 0.03);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 3px solid rgba(243, 131, 219, 0.3);
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
 
-.lista-animada .titulo {
-    font-size: 15px;
-    color: #333;
-}
+        body.dark-mode .info-genero {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left-color: rgba(255, 255, 255, 0.2);
+        }
+        /*tabla de eventos*/
+        .tabla-eventos {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-/* Adaptación automática de la tipografía en Modo Oscuro */
-body.dark-mode .lista-animada .titulo {
-    color: #ffffff !important;
-}
-body.dark-mode .lista-animada li {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-body.dark-mode .lista-animada li:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
+        .tabla-eventos th, .tabla-eventos td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-/* KEYFRAMES: Efecto de aparición desde abajo hacia arriba */
-@keyframes aparecerLista {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.contenido-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px; /* Un poco más de aire entre secciones */
-    max-width: 520px; /* El tamaño ideal para que las líneas de texto no cansen la vista */
-    width: 100%;
-}
+        .tabla-eventos th {
+            background-color: var(--border-color);
+            color: var(--text-color);
+            font-weight: bold;
+        }
 
-/* 2. Ajustamos los títulos largos dentro de la lista animada */
-.lista-animada .titulo {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.4;
-    word-break: break-word; /* Si el nombre es absurdamente largo, se corta de forma limpia */
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Máximo 2 líneas por canción si el nombre es kilométrico */
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* 3. Renovamos el párrafo de IDM por completo */
-.info-genero {
-    width: 100%;
-    text-align: justify;       /* Justifica el texto para bordes perfectos */
-    line-height: 1.7;          
-    font-size: 14.5px;
-    color: #4a4a4a;           
-    background-color: rgba(243, 131, 219, 0.03); /* Fondo sutil que combina con tu estética */
-    padding: 20px;             /* Espacio interno para que respire el texto */
-    border-radius: 15px;       /* Bordes redondeados a juego con tu interfaz */
-    border-left: 3px solid rgba(243, 131, 219, 0.3); /* Un detalle rosa minimalista a la izquierda */
-    box-sizing: border-box;
-}
-
-/* 4. Asegurar que el párrafo cambie correctamente en Modo Oscuro */
-body.dark-mode .info-genero {
-    color: #dddddd !important;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-left-color: rgba(255, 255, 255, 0.2);
-}
-.card-container {
-    background-color: var(--card-bg, #ffffff);
-    border: 1px solid var(--border-color, #e4e7eb);
-    border-radius: 20px;
-    padding: 20px;
-    margin: 30px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
-}
-
-.card-content {
-    display: flex;
-    flex-direction: row; /* Imagen a la izquierda, texto a la derecha */
-    gap: 20px;
-    align-items: center;
-}
-
-.card-content img {
-    width: 35%; /* La imagen ocupa el 35% del ancho */
-    border-radius: 15px;
-    object-fit: cover;
-}
-
-.card-text {
-    flex: 1; /* El texto ocupa el espacio restante */
-}
-
-/* Responsividad: Si la pantalla es pequeña, la imagen se pone arriba */
-@media (max-width: 768px) {
-    .card-content {
-        flex-direction: column;
-    }
-    .card-content img {
-        width: 100%;
-    }
-}
-/*tabla de eventos adaptada para seccion IDs */
-    .tabla-eventos {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.tabla-eventos th, .tabla-eventos td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.tabla-eventos th {
-    background-color: var(--border-color);
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-.tabla-eventos tr:hover {
-    background-color: rgba(255, 51, 245, 0.178);
-}
-
-/* Efecto escalonado opcional (Stagger effect): Cada elemento tarda un poquito más en aparecer que el anterior */
-.lista-animada li:nth-child(1) { animation-delay: 0.1s; }
-.lista-animada li:nth-child(2) { animation-delay: 0.2s; }
-.lista-animada li:nth-child(3) { animation-delay: 0.3s; }
-.lista-animada li:nth-child(4) { animation-delay: 0.4s; }
-.lista-animada li:nth-child(5) { animation-delay: 0.5s; }
-.lista-animada li:nth-child(6) { animation-delay: 0.6s; }
-.lista-animada li:nth-child(7) { animation-delay: 0.7s; }
-.lista-animada li:nth-child(8) { animation-delay: 0.8s; }
-.lista-animada li:nth-child(9) { animation-delay: 0.9s; }
-.lista-animada li:nth-child(10) { animation-delay: 1s; }
-.lista-animada li:nth-child(11) { animation-delay: 1.1s; }
-.lista-animada li:nth-child(12) { animation-delay: 1.2s; }
-.lista-animada li:nth-child(13) { animation-delay: 1.3s; }
-.lista-animada li:nth-child(14) { animation-delay: 1.4s; }
-.lista-animada li:nth-child(15) { animation-delay: 1.5s; }
-.lista-animada li:nth-child(16) { animation-delay: 1.6s; }
-.lista-animada li:nth-child(17) { animation-delay: 1.7s; }
-.lista-animada li:nth-child(18) { animation-delay: 1.8s;}
-.lista-animada li:nth-child(19) { animation-delay: 1.9s;}
-.lista-animada li:nth-child(20) { animation-delay: 2s;}
+        .tabla-eventos tr:hover {
+            background-color: rgba(255, 51, 245, 0.178);
+        }
+        /*Animaciones para la lista de canciones*/
+        @keyframes aparecerLista {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Animación escalonada para cada elemento de la lista */
+        .lista-animada li:nth-child(1) { animation-delay: 0.1s; }
+        .lista-animada li:nth-child(2) { animation-delay: 0.2s; }
+        .lista-animada li:nth-child(3) { animation-delay: 0.3s; }
+        .lista-animada li:nth-child(4) { animation-delay: 0.4s; }
+        .lista-animada li:nth-child(5) { animation-delay: 0.5s; }
+        .lista-animada li:nth-child(6) { animation-delay: 0.6s; }
+        .lista-animada li:nth-child(7) { animation-delay: 0.7s; }
+        .lista-animada li:nth-child(8) { animation-delay: 0.8s; }
+        .lista-animada li:nth-child(9) { animation-delay: 0.9s; }
+        .lista-animada li:nth-child(10) { animation-delay: 1.0s; }
+        .lista-animada li:nth-child(11) { animation-delay: 1.1s; }
+        .lista-animada li:nth-child(12) { animation-delay: 1.2s; }
+        .lista-animada li:nth-child(13) { animation-delay: 1.3s; }
+        .lista-animada li:nth-child(14) { animation-delay: 1.4s; }
+        .lista-animada li:nth-child(15) { animation-delay: 1.5s; }
+        .lista-animada li:nth-child(16) { animation-delay: 1.6s; }
+        .lista-animada li:nth-child(17) { animation-delay: 1.7s; }
+        .lista-animada li:nth-child(18) { animation-delay: 1.8s; }
+        .lista-animada li:nth-child(19) { animation-delay: 1.9s; }
+        .lista-animada li:nth-child(20) { animation-delay: 2.0s; }
     </style>
 </head>
 <body>
@@ -391,7 +310,6 @@ body.dark-mode .info-genero {
     <h1>αlpha</h1>
 
     <div class="contenido-container">
-        
         <div class="track">
             <p>Porter Robinson - music Vs Trip333</p>
             <audio controls>
@@ -408,271 +326,202 @@ body.dark-mode .info-genero {
             </audio>
         </div>
 
-        <div class="contenedor-imagen-historia">
+        <div class="contenedor-imagen">
             <a href="https://open.spotify.com/playlist/2MUqraSrM1BAaL6e2HgdDQ?si=UIKpCEn9TQek_80jIk-8TQ" target="_blank">
                 <img src="imagenes_proyecto/Pixiv2.jpg" alt="Imagen 1">
             </a>
         </div>
 
         <a href="Proyecto1.html" class="link-tracklist">My Tracklist</a>
-        
     </div>
-    <br>
+
     <p>Contenido de αlpha</p>
-    <br>
+
     <div class="lista-canciones-box">
-    <h3>αlpha</h3>
-    <ul class="lista-animada">
-        <li>
-            <span class="numero">01</span>
-            <span class="titulo">DOREY - Faith</span>
-        </li>
-        <li>
-            <span class="numero">02</span>
-            <span class="titulo">⣎⡇ꉺლ༽இ•̛)ྀ◞ ༎ຶ ༽ৣৢ؞ৢ؞ؖ ꉺლ - ʅ͡͡͡͡͡͡͡͡͡͡͡(ƟӨ)ʃ͡͡͡͡͡͡͡͡͡͡ ꐑ(ཀ ඊູ ఠీੂ೧ູ࿃ूੂ✧✧✧✧✧✧ළඕั࿃ूੂ࿃ूੂ</span>
-        </li>
-        <li>
-            <span class="numero">03</span>
-            <span class="titulo">Barry Can't Swim - Late Night Tales: Continuous Mix</span>
-        </li>
-        <li>
-            <span class="numero">04</span>
-            <span class="titulo">Earlham Mystics - Truth</span>
-        </li>
-        <li>
-            <span class="numero">05</span>
-            <span class="titulo">Aphex Twin, Four Tet - Untitled|SAW2 CD1 Track1|-Four Tet Mix</span>
-        </li>
-        <li>
-            <span class="numero">06</span>
-            <span class="titulo">kors k - Nirvana - Camellia Binaryheaven Remix </span>
-        </li>
-        <li>
-            <span class="numero">07</span>
-            <span class="titulo">The Prototypes, Salute - Oxygen - Salute Remix</span>
-        </li>
-        <li>
-            <span class="numero">08</span>
-            <span class="titulo">Mr.Bill, eliderp, sophro, Virtual Riot - Pleasure Seeker Virtual Riot Remix</span>
-        </li>
-        <li>
-            <span class="numero">09</span>
-            <span class="titulo">Skrillex, Randomer, Blawan, Mc Dricka - Thistle </span>
-        </li>
-        <li>
-            <span class="numero">10</span>
-            <span class="titulo">Dj Marky, Pola & Bryson, Javeon - Trouble</span>
-        </li>
-        <li>
-            <span class="numero">11</span>
-            <span class="titulo">Effy, Mall Grab - iluv</span>
-        </li>
-        <li>
-            <span class="numero">12</span>
-            <span class="titulo">Parken & Hanson - Let Me Be</span>
-        </li>
-        <li>
-            <span class="numero">13</span>
-            <span class="titulo">aran - BB2ME</span>
-        </li>
-        <li>
-            <span class="numero">14</span>
-            <span class="titulo">Srav3R - Mutabilis</span>
-        </li>
-        <li>
-            <span class="numero">15</span>
-            <span class="titulo">Billon, Rationale - Release Me</span>
-        </li>
-        <li>
-            <span class="numero">16</span>
-            <span class="titulo">Adrian Hour - Everything</span>
-        </li>
-        <li>
-            <span class="numero">17</span>
-            <span class="titulo">Missionary - 不浄な白い鳥</span>
-        </li>
-        <li>
-            <span class="numero">18</span>
-            <span class="titulo">Leotrix - Age Of Aquarius</span>
-        </li>
-        <li>
-            <span class="numero">19</span>
-            <span class="titulo">⣎⡇ꉺლ༽இ•̛)ྀ◞ ༎ຶ ༽ৣৢ؞ৢ؞ؖ ꉺლ - 　҉　　　　　͡　͞　҉　　　　　͡　͞　͞　͞　҉● ࿀ ●  ࿀  ●　　　҉⃝ 　　　⃝͢ ͞　　　͘　͞⃝̕ ͢　　　　̛　⃝ 　　　̸　̡　　͢⃝̧ 　͡　͡　　̀　̧　̢⃝͜ 　 　҉　　͞　͞　⃝͞ 　͘　͞　͡⃝  ⃝҉҈҉҈҉҈҉҈҉҈҉ 　͞　͞　҉● ࿀ ●  ࿀  ●　　　҉⃝ 　　　⃝͢ ͞　　　͘　͞⃝̕ ͢　　　　̛　⃝ 　　　̸　̡　　͢⃝̧ 　͡　͡　　̀　̧　̢⃝͜ 　 　҉　　͞　͞　⃝͞ 　͘　͞　͡⃝  ⃝҉҈҉҈҉҈҉҈҉҈҉ 　͡　͞　͞　͞　҉　҉　　　　　͡　͞　͞　͞　҉● ࿀ ●  ࿀  ●　　　҉⃝ 　　　⃝͢ ͞　</span>
-        </li>
-        <li>
-            <span class="numero">20</span>
-            <span class="titulo">Percussions - March 2013</span>
-        </li>
-    </ul>
-</div>
-<br>
-   
+        <h3>αlpha</h3>
+        <ul class="lista-animada">
+            <li><span class="numero">01</span><span class="titulo">DOREY - Faith</span></li>
+            <li><span class="numero">02</span><span class="titulo">⣎⡇ꉺლ༽இ•̛)ྀ◞ ༎ຶ ༽ৣৢ؞ৢ؞ؖ ꉺლ - ʅ͡͡͡͡͡͡͡͡͡͡͡(ƟӨ)ʃ͡͡͡͡͡͡͡͡͡͡ ꐑ(ཀ ඊູ ఠీੂ೧ູ࿃ूੂ✧✧✧✧✧✧ළඕั࿃ूੂ࿃ूੂ</span></li>
+            <li><span class="numero">03</span><span class="titulo">Barry Can't Swim - Late Night Tales: Continuous Mix</span></li>
+            <li><span class="numero">04</span><span class="titulo">Earlham Mystics - Truth</span></li>
+            <li><span class="numero">05</span><span class="titulo">Aphex Twin, Four Tet - Untitled|SAW2 CD1 Track1|-Four Tet Mix</span></li>
+            <li><span class="numero">06</span><span class="titulo">kors k - Nirvana - Camellia Binaryheaven Remix</span></li>
+            <li><span class="numero">07</span><span class="titulo">The Prototypes, Salute - Oxygen - Salute Remix</span></li>
+            <li><span class="numero">08</span><span class="titulo">Mr.Bill, eliderp, sophro, Virtual Riot - Pleasure Seeker Virtual Riot Remix</span></li>
+            <li><span class="numero">09</span><span class="titulo">Skrillex, Randomer, Blawan, Mc Dricka - Thistle</span></li>
+            <li><span class="numero">10</span><span class="titulo">Dj Marky, Pola & Bryson, Javeon - Trouble</span></li>
+            <li><span class="numero">11</span><span class="titulo">Effy, Mall Grab - iluv</span></li>
+            <li><span class="numero">12</span><span class="titulo">Parken & Hanson - Let Me Be</span></li>
+            <li><span class="numero">13</span><span class="titulo">aran - BB2ME</span></li>
+            <li><span class="numero">14</span><span class="titulo">Srav3R - Mutabilis</span></li>
+            <li><span class="numero">15</span><span class="titulo">Billon, Rationale - Release Me</span></li>
+            <li><span class="numero">16</span><span class="titulo">Adrian Hour - Everything</span></li>
+            <li><span class="numero">17</span><span class="titulo">Missionary - 不浄な白い鳥</span></li>
+            <li><span class="numero">18</span><span class="titulo">Leotrix - Age Of Aquarius</span></li>
+            <li><span class="numero">19</span><span class="titulo">⣎⡇ꉺლ༽இ•̛)ྀ◞ ༎ຶ ༽ৣৢ؞ৢ؞ؖ ꉺლ -  ҉     ͡ ͞ ҉     ͡ ͞ ͞ ͞ ҉● ࿀ ●  ࿀  ●   ҉⃝    ⃝͢ ͞   ͘ ͞⃝̕ ͢    ̛ ⃝    ̸ ̡  ͢⃝̧  ͡ ͡  ̀ ̧ ̢⃝͜    ҉  ͞ ͞ ⃝͞  ͘ ͞ ͡⃝  ⃝҉҈҉҈҉҈҉҈҉҈҉  ͞ ͞ ҉● ࿀ ●  ࿀  ●   ҉⃝    ⃝͢ ͞   ͘ ͞⃝̕ ͢    ̛ ⃝    ̸ ̡  ͢⃝̧  ͡ ͡  ̀ ̧ ̢⃝͜    ҉  ͞ ͞ ⃝͞  ͘ ͞ ͡⃝  ⃝҉҈҉҈҉҈҉҈҉҈҉  ͡ ͞ ͞ ͞ ҉ ҉     ͡ ͞ ͞ ͞ ҉● ࿀ ●  ࿀  ●   ҉⃝    ⃝͢ ͞ </span></li>
+            <li><span class="numero">20</span><span class="titulo">Percussions - March 2013</span></li>
+        </ul>
+    </div>
 
-<br>
-<div>
-    <br>
-    <h1>¿Qué es IDM?</h1>
-    <p class="info-genero"><b>Intelligent dance music</b> (IDM; en inglés: "música inteligente de baile") es un género de música electrónica que surgió a principios de los años 1990. Su creación estuvo influenciada por los avances de la música dance underground, tales como el Detroit techno y varios estilos breakbeat que estaban emergiendo en el Reino Unido en esa época. Estilísticamente, IDM tendía a basarse en la experimentación individualista, en lugar de adherirse a características musicales asociadas a géneros específicos de la música de baile. La gama de estilos post-techno que emergieron a principios de la década de 1990 fueron descritos de maneras diversas, como "art techno", "ambient techno", "intelligent techno", y "electronica". En los Estados Unidos, este último se utiliza a menudo como un término general para describir no solo a la música electrónica downtempo o no bailable, sino también la música electrónica de baile (EDM).
-    
-    </p>
-</div>
-<br>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Pixiv3.jpg" alt="Historia" loading="lazy">
-        <div class="card-text">
-            <h2>Historia</h2>
-            <p>En la época en que el fenómeno rave se desarrollaba en Inglaterra, un número de productores musicales de esa escena comenzaron a explorar el campo de la experimentación sonora. Muy influidos por el primer techno, especialmente su vertiente más onírica o reposada, y al mismo tiempo por el ambient, comenzaron a desarrollar un tipo de techno que no estaba destinado para la pista de baile sino para escuchar fuera del club.</p>
-        
-            <p>Se cree que el término "IDM" se formó en Estados Unidos en 1993 a partir de la creación de la IDM list, una lista de correo que nació con el objetivo de comentar y discutir sobre un grupo de artistas de techno inglés que estaban surgiendo en la época. Especialmente todos aquellos asociados al sello discográfico Warp Records y a la serie de recopilatorios y discos Artificial Intelligence. El nombre puede rastrearse en grupos de discusión de Internet hasta 1991. Antes de la adopción del término eran comunes otros nombres como "braindance" (preferido por el sello Rephlex Records), "electronic listening music", "listening techno", "art techno" y "experimental techno".</p>
-        </div>
+    <div>
+        <h1>¿Qué es IDM?</h1>
+        <p class="info-genero"><b>Intelligent dance music</b> (IDM; en inglés: "música inteligente de baile") es un género de música electrónica que surgió a principios de los años 1990. Su creación estuvo influenciada por los avances de la música dance underground, tales como el Detroit techno y varios estilos breakbeat que estaban emergiendo en el Reino Unido en esa época. Estilísticamente, IDM tendía a basarse en la experimentación individualista, en lugar de adherirse a características musicales asociadas a géneros específicos de la música de baile. La gama de estilos post-techno que emergieron a principios de la década de 1990 fueron descritos de maneras diversas, como "art techno", "ambient techno", "intelligent techno", y "electronica". En los Estados Unidos, este último se utiliza a menudo como un término general para describir no solo a la música electrónica downtempo o no bailable, sino también la música electrónica de baile (EDM).</p>
     </div>
-</section>
-<br>
-<div>
-    <h2 text-align: center; wid>Otros géneros de música electrónica</h2>
-</div>
-<br>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Frankie1.webp" alt="Otros géneros" loading="lazy">
-        <div class="card-text">
-            <h2>House</h2>
-            <p>El house es un género de música electrónica que se desarrolló en las ciudades de Chicago y Detroit a finales de los años 80. Se caracteriza por un ritmo constante de 120-130 BPM, con elementos de funk, soul y disco. El house se originó en clubes y fue popularizado por DJs y productores como Frankie Knuckles, Marshall Jefferson y Roni Size.</p>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Pixiv3.jpg" alt="Historia" loading="lazy">
+            <div class="card-text">
+                <h2>Historia</h2>
+                <p>En la época en que el fenómeno rave se desarrollaba en Inglaterra, un número de productores musicales de esa escena comenzaron a explorar el campo de la experimentación sonora. Muy influidos por el primer techno, especialmente su vertiente más onírica o reposada, y al mismo tiempo por el ambient, comenzaron a desarrollar un tipo de techno que no estaba destinado para la pista de baile sino para escuchar fuera del club.</p>
+                <p>Se cree que el término "IDM" se formó en Estados Unidos en 1993 a partir de la creación de la IDM list, una lista de correo que nació con el objetivo de comentar y discutir sobre un grupo de artistas de techno inglés que estaban surgiendo en la época. Especialmente todos aquellos asociados al sello discográfico Warp Records y a la serie de recopilatorios y discos Artificial Intelligence. El nombre puede rastrearse en grupos de discusión de Internet hasta 1991. Antes de la adopción del término eran comunes otros nombres como "braindance" (preferido por el sello Rephlex Records), "electronic listening music", "listening techno", "art techno" y "experimental techno".</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Hernan_Cattaneo.webp" alt="Progressive House" loading="lazy">
-        <div class="card-text">
-            <h2>Progressive House</h2>
-            <p>El progressive house es un subgénero del house que se caracteriza por su estructura melódica y su evolución sonora. Se desarrolló a partir de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
-            <p>Ya hacia la década de 2010, el Progressive House era probablemente el género musical electrónico más popular de Europa y de partes de los Estados Unidos, y grandes productores llegaron al éxito como Avicii, Alesso, Hardwell, Nicky Romero, la Swedish House Mafia, Deadmau5, Afrojack, Hernán Cattáneo o unos años más tarde Martin Garrix .</p>
+    </section>
+
+    <h2 style="text-align: center; margin-top: 40px;">Otros géneros de música electrónica</h2>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Frankie1.webp" alt="House" loading="lazy">
+            <div class="card-text">
+                <h2>House</h2>
+                <p>El house es un género de música electrónica que se desarrolló en las ciudades de Chicago y Detroit a finales de los años 80. Se caracteriza por un ritmo constante de 120-130 BPM, con elementos de funk, soul y disco. El house se originó en clubes y fue popularizado por DJs y productores como Frankie Knuckles, Marshall Jefferson y Roni Size.</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/ASOT.jpg" alt="Trance" loading="lazy">
-        <div class="card-text">
-            <h2>Trance</h2>
-            <p>El trance es un género de música electrónica que se caracteriza por su ritmo constante de 130-150 BPM, con elementos de techno, house y música ambiental. El trance se originó en Alemania a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
-            <p>Algunos de los artistas más destacados del trance incluyen a Armin van Buuren, Tiësto, Paul van Dyk, Ferry Corsten y Above & Beyond.</p>
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Hernan_Cattaneo.webp" alt="Progressive House" loading="lazy">
+            <div class="card-text">
+                <h2>Progressive House</h2>
+                <p>El progressive house es un subgénero del house que se caracteriza por su estructura melódica y su evolución sonora. Se desarrolló a partir de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
+                <p>Ya hacia la década de 2010, el Progressive House era probablemente el género musical electrónico más popular de Europa y de partes de los Estados Unidos, y grandes productores llegaron al éxito como Avicii, Alesso, Hardwell, Nicky Romero, la Swedish House Mafia, Deadmau5, Afrojack, Hernán Cattáneo o unos años más tarde Martin Garrix.</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Four_Tet.webp" alt="Drum and Bass" loading="lazy">
-        <div class="card-text">
-            <h2>Música experimental</h2>
-            <p>La música experimental es un género que se caracteriza por su enfoque innovador y su disposición para explorar nuevos sonidos y estructuras musicales. Este género a menudo combina elementos de diferentes estilos musicales y puede ser difícil de clasificar dentro de categorías tradicionales. algunos artistas destacados de este género incluyen a Four Tet, Aphex Twin y Autechre.</p>
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/ASOT.jpg" alt="Trance" loading="lazy">
+            <div class="card-text">
+                <h2>Trance</h2>
+                <p>El trance es un género de música electrónica que se caracteriza por su ritmo constante de 130-150 BPM, con elementos de techno, house y música ambiental. El trance se originó en Alemania a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
+                <p>Algunos de los artistas más destacados del trance incluyen a Armin van Buuren, Tiësto, Paul van Dyk, Ferry Corsten y Above & Beyond.</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Skrillex2.jpg" alt="Dubstep" loading="lazy">
-        <div class="card-text">
-            <h2>Dubstep</h2>
-            <p>El dubstep es un género de música electrónica que se caracteriza por su ritmo lento y sus bajos profundos. Se originó en el Reino Unido a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
-            <p>Algunos de los artistas más destacados del dubstep incluyen a Skrillex, Crankdat, Diplo y Nero.</p>
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Four_Tet.webp" alt="Música experimental" loading="lazy">
+            <div class="card-text">
+                <h2>Música experimental</h2>
+                <p>La música experimental es un género que se caracteriza por su enfoque innovador y su disposición para explorar nuevos sonidos y estructuras musicales. Este género a menudo combina elementos de diferentes estilos musicales y puede ser difícil de clasificar dentro de categorías tradicionales. Algunos artistas destacados de este género incluyen a Four Tet, Aphex Twin y Autechre.</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/Salute.jpg" alt="Progressive House" loading="lazy">
-        <div class="card-text">
-            <h2>UK Garage</h2>
-            <p>El UK Garage es un género de música electrónica que se caracteriza por su ritmo rápido y sus elementos de jazz y soul. Se originó en el Reino Unido a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
-            <p>Algunos de los artistas más destacados del UK Garage incluyen a Salute, DJ Fresh, Example, and Burial.</p>
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Skrillex2.jpg" alt="Dubstep" loading="lazy">
+            <div class="card-text">
+                <h2>Dubstep</h2>
+                <p>El dubstep es un género de música electrónica que se caracteriza por su ritmo lento y sus bajos profundos. Se originó en el Reino Unido a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
+                <p>Algunos de los artistas más destacados del dubstep incluyen a Skrillex, Crankdat, Diplo y Nero.</p>
+            </div>
         </div>
-    </div>
-</section>
-<section class="card-container">
-    <div class="card-content">
-        <img src="imagenes_proyecto/TANO_C.png" alt="J Core" loading="lazy">
-        <div class="card-text">
-            <h2>J Core</h2>
-            <p>El término J-Core (Jコア) define a un subgénero japonés derivado del Techno Hardcore y Gabber asociado a productores y DJ japoneses que surgieron a partir de la década de 1990.El origen del J-Core está estrechamente influenciado por la subcultura otaku, siendo de sus características principales el incorporar elementos sonoros como muestras de audio tomadas de series de Anime, videojuegos, programas de televisión y comedias, su ritmo que oscila entre 150 BPM - 250 BPM.</p>
-            <p>Algunos de los artistas más destacados del J-Core incluyen a  Srav3r, Nhato, REDALiCE, USAO, t+pazolite, aran, DJ Sharpnel, Camellia y DJ Genki.</p>        
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/Salute.jpg" alt="UK Garage" loading="lazy">
+            <div class="card-text">
+                <h2>UK Garage</h2>
+                <p>El UK Garage es un género de música electrónica que se caracteriza por su ritmo rápido y sus elementos de jazz y soul. Se originó en el Reino Unido a principios de los años 90 y se ha vuelto muy popular en los clubes y festivales de música electrónica.</p>
+                <p>Algunos de los artistas más destacados del UK Garage incluyen a Salute, DJ Fresh, Example, and Burial.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="card-container">
+        <div class="card-content">
+            <img src="imagenes_proyecto/TANO_C.png" alt="J Core" loading="lazy">
+            <div class="card-text">
+                <h2>J Core</h2>
+                <p>El término J-Core (Jコア) define a un subgénero japonés derivado del Techno Hardcore y Gabber asociado a productores y DJ japoneses que surgieron a partir de la década de 1990. El origen del J-Core está estrechamente influenciado por la subcultura otaku, siendo de sus características principales el incorporar elementos sonoros como muestras de audio tomadas de series de Anime, videojuegos, programas de televisión y comedias, su ritmo que oscila entre 150 BPM - 250 BPM.</p>
+                <p>Algunos de los artistas más destacados del J-Core incluyen a Srav3r, Nhato, REDALiCE, USAO, t+pazolite, aran, DJ Sharpnel, Camellia y DJ Genki.</p>
+            </div>
+        </div>
+    </section>
+
     <a href="albumes.html" class="link-tracklist">Albumes y EPs</a>
-<br>
-    <h2>¿Qué es un ID?</h2>
-        <p class="info-genero">En la música electrónica, un ID (abreviatura de Identification) es una canción o pista musical cuyo nombre, autor o ambos aún no se han revelado. Es un término muy común en los sets en vivo, festivales y transmisiones (como las de Tomorrowland o Boiler Room) cuando un DJ pincha una canción nueva y misteriosa.
-            <br>
-            El uso de la palabra proviene de la cultura radial y de los DJs, quienes marcaban los discos de vinilo de acetato que aún no tenían etiqueta oficial con la palabra "ID" (identificación pendiente) hasta que el sello discográfico publicara los datos reales.
-            <br>
-        </p>
-    <h2>¿En qué situaciones se usa un ID?</h2>
-        <p class="info-genero"><strong>Canciones inéditas (Unreleased):</strong> Los DJs y productores utilizan IDs para referirse a sus propios temas nuevos que aún no están terminados o que aún no tienen fecha de lanzamiento oficial.
-        <br>
-            <strong>Prueba de reacción (Testing):</strong> Los artistas tocan canciones sin título en grandes festivales simplemente para evaluar cómo reacciona el público antes de decidir si lanzarlas o descartarlas.
-        <br>
-        <strong>Misterio o colaboraciones:</strong> A veces es una estrategia para crear misterio, expectativa o para ocultar el nombre de una colaboración secreta que aún no está firmada con ninguna disquera.
-        </p>
-        <br>
-        <table class="tabla-eventos">
-    <thead>
-        <tr>
-            <th>DJ</th>
-            <th>IDs</th>
-            <th>Fecha</th>
-            <th>Colaboradores</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Skrillex</td>
-            <td>Sun Up</td>
-            <td>26 de Julio del 2023</td>
-            <td>Vigro Deep, Sarz, Virtual Riot, Burna Boy</td>
-        </tr>
-        <tr>
-            <td>Ninajirachi</td>
-            <td>WannaCry</td>
-            <td>11 de Abril del 2026</td>
-            <td>Porter Robinson</td>
-        </tr>
-        <tr>
-            <td>Four Tet</td>
-            <td>Human Voice</td>
-            <td>12 de Septiembre del 2025</td>
-            <td>Skrillex, Fred again..</td>
-        </tr>
-        <tr>
-            <td>KAYTRANADA</td>
-            <td>Intimidated (Salute Edit)</td>
-            <td>16 de Abril del 2022</td>
-            <td>Salute</td>
-        </tr>
-        <tr>
-            <td>Fred again..</td>
-            <td>Bipolar</td>
-            <td>11 de Octubre del 2024</td>
-            <td>Skrillex, Central Cee</td>
-        </tr>
-        <tr>
-            <td>MPH</td>
-            <td>Long Goodbye</td>
-            <td>26 de Mayo del 2026</td>
-            <td>Nathan Nicholson</td>
-        </tr>
-        <tr>
-            <td>Skrillex</td>
-            <td>Bunga</td>
-            <td>26 de Mayo del 2026</td>
-            <td>MPH</td>
-        </tr>
-    </tbody>
-</table>
 
-    
+    <h2>¿Qué es un ID?</h2>
+    <p class="info-genero">En la música electrónica, un ID (abreviatura de Identification) es una canción o pista musical cuyo nombre, autor o ambos aún no se han revelado. Es un término muy común en los sets en vivo, festivales y transmisiones (como las de Tomorrowland o Boiler Room) cuando un DJ pincha una canción nueva y misteriosa.<br>El uso de la palabra proviene de la cultura radial y de los DJs, quienes marcaban los discos de vinilo de acetato que aún no tenían etiqueta oficial con la palabra "ID" (identificación pendiente) hasta que el sello discográfico publicara los datos reales.</p>
+
+    <h2>¿En qué situaciones se usa un ID?</h2>
+    <p class="info-genero">
+        <strong>Canciones inéditas (Unreleased):</strong> Los DJs y productores utilizan IDs para referirse a sus propios temas nuevos que aún no están terminados o que aún no tienen fecha de lanzamiento oficial.<br>
+        <strong>Prueba de reacción (Testing):</strong> Los artistas tocan canciones sin título en grandes festivales simplemente para evaluar cómo reacciona el público antes de decidir si lanzarlas o descartarlas.<br>
+        <strong>Misterio o colaboraciones:</strong> A veces es una estrategia para crear misterio, expectativa o para ocultar el nombre de una colaboración secreta que aún no está firmada con ninguna disquera.
+    </p>
+
+    <table class="tabla-eventos">
+        <thead>
+            <tr>
+                <th>DJ</th>
+                <th>IDs</th>
+                <th>Fecha</th>
+                <th>Colaboradores</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Skrillex</td>
+                <td>Sun Up</td>
+                <td>26 de Julio del 2023</td>
+                <td>Vigro Deep, Sarz, Virtual Riot, Burna Boy</td>
+            </tr>
+            <tr>
+                <td>Ninajirachi</td>
+                <td>WannaCry</td>
+                <td>11 de Abril del 2026</td>
+                <td>Porter Robinson</td>
+            </tr>
+            <tr>
+                <td>Four Tet</td>
+                <td>Human Voice</td>
+                <td>12 de Septiembre del 2025</td>
+                <td>Skrillex, Fred again..</td>
+            </tr>
+            <tr>
+                <td>KAYTRANADA</td>
+                <td>Intimidated (Salute Edit)</td>
+                <td>16 de Abril del 2022</td>
+                <td>Salute</td>
+            </tr>
+            <tr>
+                <td>Fred again..</td>
+                <td>Bipolar</td>
+                <td>11 de Octubre del 2024</td>
+                <td>Skrillex, Central Cee</td>
+            </tr>
+            <tr>
+                <td>MPH</td>
+                <td>Long Goodbye</td>
+                <td>26 de Mayo del 2026</td>
+                <td>Nathan Nicholson</td>
+            </tr>
+            <tr>
+                <td>Skrillex</td>
+                <td>Bunga</td>
+                <td>26 de Mayo del 2026</td>
+                <td>MPH</td>
+            </tr>
+        </tbody>
+    </table>
 
     <script src="script.js"></script>
 </body>
